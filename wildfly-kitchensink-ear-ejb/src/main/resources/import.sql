@@ -16,4 +16,17 @@
 --
 
 -- You can use this file to load seed data into the database using SQL statements
-insert into Registrant(id, name, email, phone_number) values (0, 'John Smith', 'john.smith@mailinator.com', '2125551212') 
+insert into Registrant(id, name, email, phone_number) values (0, 'John Smith', 'john.smith@mailinator.com', '2125551212')
+
+insert into OpportunityStatus(id, name) values (0, 'Open')
+insert into OpportunityStatus(id, name) values (1, 'Full')
+insert into OpportunityStatus(id, name) values (2, 'Waitlist')
+insert into OpportunityStatus(id, name) values (3, 'Confirmed')
+insert into OpportunityStatus(id, name) values (4, 'Canceled')
+
+insert into ActivityType(id, title) values (0, 'Hike')
+insert into ActivityType(id, title) values (1, 'Sport Climb')
+insert into ActivityType(id, title) values (2, 'Alpine Climb')
+insert into ActivityType(id, title) values (3, 'Ski')
+insert into ActivityType(id, title) values (4, 'Ski-Tour')
+insert into ActivityType(id, title) values (5, 'Family')

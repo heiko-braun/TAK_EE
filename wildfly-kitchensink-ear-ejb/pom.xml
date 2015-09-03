@@ -84,7 +84,7 @@
 
         <!-- Optional, but highly recommended -->
         <!-- Arquillian allows you to test enterprise code such as EJBs and 
-            Transactional(JTA) JPA from JUnit/TestNG -->
+            Transactional(JTA) JPA dateStart JUnit/TestNG -->
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>

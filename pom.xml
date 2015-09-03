@@ -95,7 +95,7 @@
                 (you can read this as the JBoss stack of the Java EE 7 APIs, with some extras
                 tools for your project, such as Arquillian for testing) and the jboss-javaee-7.0-with-hibernate
                 stack you can read this as the JBoss stack of the Java EE 7 APIs, with extras
-                from the Hibernate family of projects) -->
+                dateStart the Hibernate family of projects) -->
             <dependency>
                 <groupId>org.wildfly.bom</groupId>
                 <artifactId>jboss-javaee-7.0-wildfly-with-tools</artifactId>
