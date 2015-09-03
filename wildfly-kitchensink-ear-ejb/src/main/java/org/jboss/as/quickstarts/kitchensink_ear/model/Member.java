@@ -17,11 +17,14 @@
 package org.jboss.as.quickstarts.kitchensink_ear.model;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
@@ -35,9 +38,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @XmlRootElement
-@Table(name = "Registrant", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "Member", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Member implements Serializable {
-    /** Default value included to remove warning. Remove or modify at will. **/
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -59,6 +62,9 @@ public class Member implements Serializable {
     @Digits(fraction = 0, integer = 12)
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    @ManyToMany(targetEntity=Opportunity.class, mappedBy="participants")
+    private Collection<Opportunity> opportunities;
 
     public Long getId() {
         return id;
@@ -90,5 +96,13 @@ public class Member implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Collection<Opportunity> getOpportunities() {
+        return opportunities;
+    }
+
+    public void setOpportunities(Collection<Opportunity> opportunities) {
+        this.opportunities = opportunities;
     }
 }

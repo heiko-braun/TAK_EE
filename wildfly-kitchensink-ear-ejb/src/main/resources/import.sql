@@ -16,7 +16,7 @@
 --
 
 -- You can use this file to load seed data into the database using SQL statements
-insert into Registrant(id, name, email, phone_number) values (0, 'John Smith', 'john.smith@mailinator.com', '2125551212')
+insert into member(id, name, email, phone_number) values (0, 'John Smith', 'john.smith@mailinator.com', '2125551212')
 
 insert into OpportunityStatus(id, name) values (0, 'Open')
 insert into OpportunityStatus(id, name) values (1, 'Full')
@@ -35,3 +35,5 @@ insert into Activity(id, title, description, TYPE_ID, min, max) values (0, 'Some
 insert into Activity(id, title, description, TYPE_ID, min, max) values (1, 'Another Title', 'Another Description', 0, -1, -1)
 
 insert into Opportunity(id, dateStart, dateEnd, STATUS_ID, ACTIVITY_ID) values (0, CURRENT_DATE(), CURRENT_DATE(), 3, 1)
+
+insert into Opportunity_Member(OP_ID,MEM_ID) values (0, 0)

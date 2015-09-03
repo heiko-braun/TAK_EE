@@ -5,11 +5,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.Date;
+import java.util.Collection;
 
 /**
  * @author Heiko Braun
@@ -39,6 +42,15 @@ public class Opportunity {
     @OneToOne(fetch= FetchType.EAGER)
     @JoinColumn(name="ACTIVITY_ID")
     private Activity activity;
+
+    @ManyToMany(targetEntity=Member.class, fetch = FetchType.EAGER)
+    @JoinTable(name="Opportunity_Member",
+            joinColumns=
+            @JoinColumn(name="OP_ID", referencedColumnName="ID"),
+            inverseJoinColumns=
+            @JoinColumn(name="MEM_ID", referencedColumnName="ID")
+    )
+    private Collection<Member> participants;
 
     public Long getId() {
         return id;
@@ -78,5 +90,13 @@ public class Opportunity {
 
     public void setActivity(Activity activity) {
         this.activity = activity;
+    }
+
+    public Collection<Member> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(Collection<Member> participants) {
+        this.participants = participants;
     }
 }
