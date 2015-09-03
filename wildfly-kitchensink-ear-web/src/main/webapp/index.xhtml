@@ -21,7 +21,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 template="/WEB-INF/templates/default.xhtml">
     <ui:define name="content">
-        <h1>TAK Activities</h1>
+        <h1>TAK Catalogue</h1>
 
         <!--  <div>
              <p>You have successfully deployed a Java EE 7 Enterprise Application.</p>
@@ -56,7 +56,11 @@
           </h:form>-->
         <h2>Activities</h2>
 
-        <h:dataTable var="activity" value="#{activityController.activities}" rendered="#{not empty members}" styleClass="simpletablestyle">
+        <h:panelGroup rendered="#{empty activityController.activities}">
+            <em>No registered activities.</em>
+        </h:panelGroup>
+
+        <h:dataTable var="activity" value="#{activityController.activities}" rendered="#{not empty activityController.activities}" styleClass="simpletablestyle">
             <h:column>
                 <f:facet name="header">Id</f:facet>
                 #{activity.id}

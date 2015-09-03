@@ -36,7 +36,7 @@ public class Opportunity {
     @JoinColumn(name="STATUS_ID")
     private OpportunityStatus status;
 
-    @OneToOne(fetch= FetchType.LAZY)
+    @OneToOne(fetch= FetchType.EAGER)
     @JoinColumn(name="ACTIVITY_ID")
     private Activity activity;
 

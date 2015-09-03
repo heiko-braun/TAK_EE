@@ -16,7 +16,7 @@
  */
 package org.jboss.as.quickstarts.kitchensink_ear.service;
 
-import org.jboss.as.quickstarts.kitchensink_ear.model.Activity;
+import org.jboss.as.quickstarts.kitchensink_ear.model.Opportunity;
 import org.jboss.as.quickstarts.kitchensink_ear.model.Member;
 
 import javax.annotation.PostConstruct;
@@ -29,7 +29,7 @@ import java.util.Collection;
 import java.util.logging.Logger;
 
 @Stateless
-public class ActivityFacade {
+public class OpportunityFacade {
 
     @Inject
     private Logger log;
@@ -37,22 +37,22 @@ public class ActivityFacade {
     @Inject
     private EntityManager em;
 
-    public void createActivity(Activity activity) {
-        log.info("Create " + activity);
-        em.persist(activity);
+    public void createOpportunity(Opportunity op) {
+        log.info("Create " + op);
+        em.persist(op);
     }
 
-    public void removeActivity(Activity activity) {
-        log.info("Remove" + activity);
-        em.remove(activity);
+    public void removeOpportunity(Opportunity op) {
+        log.info("Remove" + op);
+        em.remove(op);
     }
 
-    public Collection<Activity> findAllActivities() {
-        Query query = em.createQuery("SELECT a FROM Activity a");
-        return (Collection<Activity>) query.getResultList();
+    public Collection<Opportunity> findAllOpportunities() {
+        Query query = em.createQuery("SELECT a FROM Opportunity a");
+        return (Collection<Opportunity>) query.getResultList();
     }
 
-    public Activity findActivity(Long id) {
-        return em.find(Activity.class, id);
+    public Opportunity findOpportunity(Long id) {
+        return em.find(Opportunity.class, id);
     }
 }

@@ -33,3 +33,5 @@ insert into ActivityType(id, title) values (5, 'Family')
 
 insert into Activity(id, title, description, TYPE_ID, min, max) values (0, 'Some Title', 'Some Description', 5, -1, -1)
 insert into Activity(id, title, description, TYPE_ID, min, max) values (1, 'Another Title', 'Another Description', 0, -1, -1)
+
+insert into Opportunity(id, dateStart, dateEnd, STATUS_ID, ACTIVITY_ID) values (0, CURRENT_DATE(), CURRENT_DATE(), 3, 1)
