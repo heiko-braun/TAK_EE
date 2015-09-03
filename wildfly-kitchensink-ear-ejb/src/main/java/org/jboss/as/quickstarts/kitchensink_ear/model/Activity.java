@@ -53,15 +53,11 @@ public class Activity implements Serializable {
     private String description;
 
     @NotNull
-    @NotEmpty
     private int min;
 
     @NotNull
-    @NotEmpty
     private int max;
 
-    @NotNull
-    @NotEmpty
     private String location;
 
     @OneToOne(fetch= FetchType.EAGER)
@@ -122,6 +118,15 @@ public class Activity implements Serializable {
 
     public void setType(ActivityType type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Activity{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", type=" + type +
+                '}';
     }
 }
 
